@@ -11,8 +11,12 @@
     }
   ],
   "minimum-stability": "stable",
-  "require": {},
-  "require-dev": {},
+  "require": {
+    "php": "^8.0"
+  },
+  "require-dev": {
+    "phpunit/phpunit": "^9.5"
+  },
   "autoload": {
     "psr-4": {
       "Eufony\\Log\\": [ "src/Exception/", "src/" ]
@@ -22,6 +26,12 @@
     "psr-4": {
       "Eufony\\Log\\Tests\\": [ "tests/" ]
     }
+  },
+  "scripts": {
+    "test": [
+      "phpunit -c tests/Unit/phpunit.xml.dist",
+      "phpunit -c tests/Integration/phpunit.xml.dist"
+    ]
   },
   "config": {
     "optimize-autoloader": true,
