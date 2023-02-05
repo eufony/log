@@ -1,18 +1,30 @@
 <h1 align="center">The Eufony Log Package</h1>
 
 <p align="center">
-    <img alt="Packagist Downloads" src="https://img.shields.io/packagist/dt/eufony/log?label=Packagist%20Downloads">
-    <img alt="GitHub Stars" src="https://img.shields.io/github/stars/eufony/log?label=GitHub%20Stars">
-    <img alt="Issues" src="https://img.shields.io/github/issues/eufony/log/open?label=Issues">
-    <img alt="License" src="https://img.shields.io/github/license/eufony/log?label=License">
+    <a href="https://packagist.org/packages/eufony/log">
+        <img alt="Packagist Downloads" src="https://img.shields.io/packagist/dt/eufony/log?label=Packagist%20Downloads">
+    </a>
+    <a href="https://github.com/eufony/log">
+        <img alt="GitHub Stars" src="https://img.shields.io/github/stars/eufony/log?label=GitHub%20Stars">
+    </a>
+    <a href="https://github.com/eufony/log/issues">
+        <img alt="Issues" src="https://img.shields.io/github/issues/eufony/log/open?label=Issues">
+    </a>
+    <br>
+    <a href="https://github.com/eufony/log#license">
+        <img alt="License" src="https://img.shields.io/github/license/eufony/log?label=License">
+    </a>
+    <a href="https://github.com/eufony/log#contributing">
+        <img alt="Community Built" src="https://img.shields.io/badge/Made%20with-%E2%9D%A4-red">
+    </a>
 </p>
-
-- GitHub: https://github.com/eufony/log
-- Packagist: https://packagist.org/packages/eufony/log
-- Issues: https://github.com/eufony/log/issues
 
 *eufony/log provides the most trivial implementations of PSR-3 as well as other essentials for getting started with
 logging.*
+
+## Contributing
+
+Found a bug or a missing feature? You can report it over at the [issue tracker](https://github.com/eufony/log/issues).
 
 ## License
 
