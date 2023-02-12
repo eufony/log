@@ -20,6 +20,7 @@ use Eufony\Log\ThresholdAwareInterface;
 use Eufony\Log\Utils\LoggerProxyTrait;
 use Eufony\Log\Utils\LoggerTrait;
 use Psr\Log\AbstractLogger;
+use Psr\Log\LoggerInterface;
 use Psr\Log\LogLevel;
 use ReflectionClass;
 
@@ -51,9 +52,35 @@ class ThresholdAwareAdapter extends AbstractLogger implements ThresholdAwareInte
     protected string $maxLevel = LogLevel::EMERGENCY;
 
     /**
+     * Class constructor.
+     * Wraps another logging implementation and provides functionality for minimum
+     * and maximum log level thresholds.
+     *
+     * Optionally accepts a minimum or a maximum log level threshold.
+     *
+     * @param \Psr\Log\LoggerInterface $logger
+     * @param string|null $minLevel
+     * @param string|null $maxLevel
+     */
+    public function __construct(LoggerInterface $logger, ?string $minLevel = null, ?string $maxLevel = null)
+    {
+        $this->logger = $logger;
+        $this->minLevel = LogLevel::DEBUG;
+        $this->maxLevel = LogLevel::EMERGENCY;
+
+        if ($minLevel !== null) {
+            $this->minLevel($minLevel ?? LogLevel::DEBUG);
+        }
+
+        if ($maxLevel !== null) {
+            $this->maxLevel(LogLevel::EMERGENCY);
+        }
+    }
+
+    /**
      * @inheritDoc
      */
-    public function minLevel($level = null): string
+    public function minLevel(?string $level = null): string
     {
         $prev = $this->minLevel;
         $this->minLevel = $this->psr3_validateLevel($level ?? $this->minLevel);
@@ -63,7 +90,7 @@ class ThresholdAwareAdapter extends AbstractLogger implements ThresholdAwareInte
     /**
      * @inheritDoc
      */
-    public function maxLevel($level = null): string
+    public function maxLevel(?string $level = null): string
     {
         $prev = $this->maxLevel;
         $this->maxLevel = $this->psr3_validateLevel($level ?? $this->maxLevel);
